@@ -6,4 +6,10 @@
     background-size: cover;
     border-bottom-left-radius: 5em 5em;
     padding-top: 2em;
+
+    .theme-switch {
+        display: flex;
+        align-items: center;
+        gap: .5em;
+    }
 }

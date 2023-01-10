@@ -1,5 +1,4 @@
 /* Abstracts */
-@import "./abstracts/variables";
 @import "./abstracts/mixins";
 @import "./abstracts/containers";
 
@@ -9,11 +8,14 @@
 
 /* Components */
 @import "./components/main-header";
+@import "./components/switch-button";
 
 /* Layout */
 
 /* Pages */
 
 /* Themes */
+
+/* Framework */
 
 @import 'bulma/css/bulma.css'
