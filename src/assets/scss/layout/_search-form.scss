@@ -1,0 +1,56 @@
+.search-form {
+  width: 100%;
+  position: relative;
+  bottom: 1.5em;
+  background-color: #ffffff;
+  border-radius: 4px;
+
+  .flex-container {
+    @include space-between;
+
+    #title {
+      flex: 3;
+    }
+
+    #location {
+      flex: 2;
+      border-left: 1px solid rgb(230, 230, 230);
+      border-right: 1px solid rgb(230, 230, 230);
+    }
+
+    #search {
+      flex: 2;
+      display: flex;
+      justify-content: space-between;
+      gap: .8em;
+    }
+
+    .search-form__item {
+      display: flex;
+      align-items: center;
+      padding: 0.8em 1em;
+
+      .search-form__btn {
+        @include main-button;
+      }
+
+      img {
+        margin-right: 1em;
+      }
+
+      label {
+        cursor: pointer;
+      }
+
+      .search-input {
+        flex-grow: 1;
+        font-size: 1em;
+      }
+
+      #checkbox {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+}

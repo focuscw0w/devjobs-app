@@ -7,11 +7,12 @@
 @import "./base/typography";
 
 /* Components */
-@import "./components/main-header";
 @import "./components/switch-button";
 @import "./components/card";
 
 /* Layout */
+@import "./layout/main-header";
+@import "./layout/search-form";
 
 /* Pages */
 @import "./pages/home-page";
