@@ -1,34 +1,20 @@
-import { createStore } from 'vuex'
-import axios from "axios"
+import { createStore } from "vuex";
+import jsonData from "@/assets/data.json"
 
 const store = createStore({
   state: {
+    data: jsonData,
     jobs: [],
+    darkTheme: false,
   },
-  getters: {
-  },
+  getters: {},
   mutations: {
-    SET_JOBS: (state, jobs) => {
-      state.jobs = jobs
-    }
+    TOGGLE_THEME: (state) => {
+      state.darkTheme = !state.darkTheme;
+    },
   },
-  actions: {
-  },
-  modules: {
-  }
-})
+  actions: {},
+  modules: {},
+});
 
-export default store
-
-/*
-const setJobsToStore = () => {
-  axios
-  .get("/public/data.json")
-  .then(response => {
-    store.commit("SET_JOBS", response.data)
-  })
-}
-
-setJobsToStore()
-
-*/
+export default store;

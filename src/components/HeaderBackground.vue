@@ -17,7 +17,3 @@ export default {
     components: { SwitchButton }
 }
 </script>
-
-<style lang="scss">
-@import "@/assets/scss/main.scss";
-</style>

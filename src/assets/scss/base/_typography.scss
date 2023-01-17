@@ -12,3 +12,15 @@ body {
         color: #ffffff;
     }
 }
+
+.card {
+    .flex-container,
+    .card__job-feature {
+        color: rgb(172, 172, 172);
+    }
+
+    .card__job-location {
+        font-weight: 700;
+        color: rgb(115, 87, 240);
+    }
+}

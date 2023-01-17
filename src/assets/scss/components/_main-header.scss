@@ -7,6 +7,10 @@
     border-bottom-left-radius: 5em 5em;
     padding-top: 2em;
 
+    .flex-container {
+        @include space-between;
+    }
+
     .theme-switch {
         display: flex;
         align-items: center;

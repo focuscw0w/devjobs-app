@@ -1,3 +1,7 @@
 @mixin space-between {
     justify-content: space-between;
 }
+
+@mixin space-normal {
+    justify-content: unset;
+}
