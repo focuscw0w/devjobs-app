@@ -1,8 +1,24 @@
 <template>
-  <label for="checkbox" class="switch" @click="$store.commit('TOGGLE_THEME')">
-    <input type="checkbox" id="switch" :checked="$store.state.darkTheme" />
+  <label for="switch" class="switch">
+    <input type="checkbox" id="switch" :checked="checkedTheme" @click="toggleTheme" />
     <span class="slider"></span>
   </label>
 </template>
 
-<script></script>
+<script>
+import { ref } from '@vue/reactivity'
+import store from "@/store/index.js"
+  export default {
+    setup() {
+      let checkedTheme = ref(false)
+      const toggleTheme = () => {
+        checkedTheme = !checkedTheme
+        store.commit("TOGGLE_THEME")
+      }
+      return {
+        checkedTheme,
+        toggleTheme
+      }
+    }
+  }
+</script>

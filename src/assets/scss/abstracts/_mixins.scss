@@ -1,9 +1,11 @@
 @mixin space-between {
+    display: flex;
     justify-content: space-between;
 }
 
-@mixin space-normal {
-    justify-content: unset;
+@mixin align-center {
+    display: flex;
+    align-items: center;
 }
 
 @mixin main-button {

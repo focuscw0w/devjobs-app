@@ -1,9 +1,11 @@
 .home-page {
+    padding-bottom: 5em;
     .home-page__columns.flex-container {
         gap: 2em;
+        flex-wrap: wrap;
     }
 
    .home-page__columns {
-    margin-top: 5em;
+    margin-top: 15em;
    }
 }

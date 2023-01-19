@@ -1,32 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap");
 
 body {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .main-header {
-    .main-header__heading {
-        font-weight: 700;
-        font-size: 1.5em;
-        letter-spacing: 1px;
-        color: #ffffff;
-    }
+  .main-header__heading {
+    font-weight: $font-bold;
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    color: #ffffff;
+  }
 }
 
 .card {
-    .flex-container,
-    .card__job-feature {
-        color: rgb(172, 172, 172);
-    }
+  .flex-container,
+  .card__job-company {
+    color: rgb(172, 172, 172);
+  }
 
-    .card__job-location {
-        font-weight: 700;
-        color: rgb(100, 76, 236);
-    }
+  .card__job-location {
+    font-weight: $font-bold;
+    color: rgb(100, 76, 236);
+  }
 }
 
 .search-form__item {
-    label {
-        font-weight: bold;
-    }
+  label {
+    font-weight: $font-bold;
+  }
 }

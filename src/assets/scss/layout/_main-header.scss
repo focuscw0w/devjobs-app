@@ -1,19 +1,26 @@
+.header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 .main-header {
-    width: 100%;
-    height: 8em;
-    background-image: url(/src/assets/images/desktop/bg-pattern-header.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-bottom-left-radius: 5em 5em;
-    padding-top: 2em;
+  width: 100%;
+  height: 8em;
+  background-image: url(/src/assets/images/desktop/bg-pattern-header.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom-left-radius: 5em 5em;
+  padding-top: 2em;
 
-    .flex-container {
-        @include space-between;
-    }
+  .flex-container {
+    @include space-between;
+  }
 
-    .theme-switch {
-        display: flex;
-        align-items: center;
-        gap: .5em;
-    }
+  .theme-switch {
+    @include align-center;
+    gap: 0.5em;
+  }
 }

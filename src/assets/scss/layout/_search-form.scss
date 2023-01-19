@@ -4,6 +4,7 @@
   bottom: 1.5em;
   background-color: #ffffff;
   border-radius: 4px;
+  box-shadow: $box-shadow;
 
   .flex-container {
     @include space-between;
@@ -20,14 +21,12 @@
 
     #search {
       flex: 2;
-      display: flex;
-      justify-content: space-between;
+      @include space-between;
       gap: .8em;
     }
 
     .search-form__item {
-      display: flex;
-      align-items: center;
+      @include align-center;
       padding: 0.8em 1em;
 
       .search-form__btn {
