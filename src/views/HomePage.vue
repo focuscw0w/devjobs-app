@@ -9,7 +9,7 @@
 
         <Card
           :jobInformation="job"
-          v-for="job in $store.state.data"
+          v-for="job in $store.state.filteredJobs"
           :key="job.id"
         />
       </div>

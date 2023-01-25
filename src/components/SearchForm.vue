@@ -45,38 +45,53 @@ export default {
       checked: false,
       locationQuery: "",
       jobQuery: "",
-      data: store.state.data,
     });
 
     const searchJob = () => {
       if (state.jobQuery == "" && state.locationQuery == "") return;
-      const fullTime = state.checked ? "Full Time" : ""
-      let result
+      if (state.jobQuery !== "" && state.locationQuery !== "") return;
 
-      // 
-      /// All filters
-      //
+      if (state.jobQuery !== "") filterByTitle();
+      else filterByLocation();
 
-      // Filter by title, companies, expertise...
+      resetSettings();
+    };
 
-      const filteredCompany = state.data.filter((job) =>
-        job.company.toLowerCase().includes(state.jobQuery.toLocaleLowerCase()) ||
-        job.position.toLowerCase().includes(state.jobQuery.toLocaleLowerCase()) ||
-        job.contract.toLowerCase().includes(state.jobQuery.toLocaleLowerCase())
+    // Reset settings
+
+    const resetSettings = () => {
+      state.locationQuery = "";
+      state.jobQuery = "";
+      state.checked = false;
+    };
+
+    //
+    /// All filters
+    //
+
+    // Refactor with vuex
+
+    const filterByTitle = () => {
+      store.state.filteredJobs = store.state.data.filter(
+        (job) =>
+          job.company
+            .toLowerCase()
+            .includes(state.jobQuery.toLocaleLowerCase()) ||
+          job.position
+            .toLowerCase()
+            .includes(state.jobQuery.toLocaleLowerCase()) ||
+          job.contract
+            .toLowerCase()
+            .includes(state.jobQuery.toLocaleLowerCase())
       );
+    };
 
-      // Filter by location
-      
-      const filteredByLocation = state.data.filter((job) =>
+    const filterByLocation = () => {
+      store.state.filteredJobs = store.state.data.filter((job) =>
         job.location
           .toLowerCase()
           .includes(state.locationQuery.toLocaleLowerCase())
       );
-
-      // Reset input field
-
-      state.locationQuery = "";
-      state.jobQuery = "";
     };
 
     return { ...toRefs(state), searchJob };

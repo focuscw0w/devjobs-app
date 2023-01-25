@@ -4,7 +4,7 @@ import jsonData from "@/assets/data.json"
 const store = createStore({
   state: {
     data: jsonData,
-    jobs: [],
+    filteredJobs: jsonData,
     darkTheme: false,
   },
   getters: {},
@@ -13,7 +13,8 @@ const store = createStore({
       state.darkTheme = !state.darkTheme;
     },
   },
-  actions: {},
+  actions: {
+  },
   modules: {},
 });
 
