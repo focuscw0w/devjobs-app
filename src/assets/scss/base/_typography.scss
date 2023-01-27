@@ -4,6 +4,12 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+button {
+  font-weight: $font-bold;
+  font-size: .8em;
+  letter-spacing: .3px;
+}
+
 .main-header {
   .main-header__heading {
     font-weight: $font-bold;
@@ -22,6 +28,10 @@ body {
   .card__job-location {
     font-weight: $font-bold;
     color: rgb(100, 76, 236);
+  }
+
+  .card__job-name {
+    color: #000000;
   }
 }
 

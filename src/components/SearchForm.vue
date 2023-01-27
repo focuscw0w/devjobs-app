@@ -38,7 +38,8 @@
 
 <script>
 import { reactive, toRefs } from "@vue/reactivity";
-import store from "@/store/index.js";
+import { useStore } from "vuex";
+
 export default {
   setup() {
     const state = reactive({
@@ -47,17 +48,7 @@ export default {
       jobQuery: "",
     });
 
-    const searchJob = () => {
-      if (state.jobQuery == "" && state.locationQuery == "") return;
-      if (state.jobQuery !== "" && state.locationQuery !== "") return;
-
-      if (state.jobQuery !== "") filterByTitle();
-      else filterByLocation();
-
-      resetSettings();
-    };
-
-    // Reset settings
+    const store = useStore();
 
     const resetSettings = () => {
       state.locationQuery = "";
@@ -65,33 +56,15 @@ export default {
       state.checked = false;
     };
 
-    //
-    /// All filters
-    //
+    const searchJob = () => {
+      if (state.jobQuery == "" && state.locationQuery == "") return;
+      if (state.jobQuery !== "" && state.locationQuery !== "") return;
 
-    // Refactor with vuex
+      if (state.jobQuery !== "")
+        store.dispatch("filterByTitle", state.jobQuery.trim);
+      else store.dispatch("filterByLocation", state.locationQuery);
 
-    const filterByTitle = () => {
-      store.state.filteredJobs = store.state.data.filter(
-        (job) =>
-          job.company
-            .toLowerCase()
-            .includes(state.jobQuery.toLocaleLowerCase()) ||
-          job.position
-            .toLowerCase()
-            .includes(state.jobQuery.toLocaleLowerCase()) ||
-          job.contract
-            .toLowerCase()
-            .includes(state.jobQuery.toLocaleLowerCase())
-      );
-    };
-
-    const filterByLocation = () => {
-      store.state.filteredJobs = store.state.data.filter((job) =>
-        job.location
-          .toLowerCase()
-          .includes(state.locationQuery.toLocaleLowerCase())
-      );
+      resetSettings();
     };
 
     return { ...toRefs(state), searchJob };

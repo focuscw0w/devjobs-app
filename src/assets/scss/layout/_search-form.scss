@@ -1,7 +1,6 @@
 .search-form {
+  @include component-settings;
   width: 100%;
-  position: relative;
-  bottom: 1.5em;
   background-color: #ffffff;
   border-radius: 4px;
   box-shadow: $box-shadow;
@@ -22,7 +21,7 @@
     #search {
       flex: 2;
       @include space-between;
-      gap: .8em;
+      gap: 0.8em;
     }
 
     .search-form__item {
@@ -30,7 +29,7 @@
       padding: 0.8em 1em;
 
       .search-form__btn {
-        @include main-button;
+        @include button-settings(rgb(100, 76, 236), #ffffff)
       }
 
       img {

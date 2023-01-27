@@ -1,0 +1,23 @@
+.offer-details {
+  .company {
+    @include component-settings;
+    background-color: $color-main;
+    border-radius: $border-radius;
+    height: 110px;
+    margin-bottom: 2em;
+    .company__logo {
+      @include center;
+      flex: 1;
+      background-color: orange;
+    }
+    .company__info {
+    @include space-between;
+      flex: 3;
+      padding: 2em;
+
+      .company__btn {
+        @include button-settings(#eeeeee, rgb(100, 76, 236))
+      }
+    }
+  }
+}
