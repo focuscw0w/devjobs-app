@@ -1,23 +1,29 @@
-.offer-details {
-  .company {
+.offer {
+  .offer__company {
     @include component-settings;
     background-color: $color-main;
     border-radius: $border-radius;
     height: 110px;
-    margin-bottom: 2em;
-    .company__logo {
+    margin-bottom: .5em;
+    .offer__company__logo {
       @include center;
       flex: 1;
       background-color: orange;
     }
-    .company__info {
+    .offer__company__info {
     @include space-between;
       flex: 3;
       padding: 2em;
 
-      .company__btn {
+      .offer__company__btn {
         @include button-settings(#eeeeee, rgb(100, 76, 236))
       }
     }
+  }
+
+  .offer__details {
+    background-color: $color-main;
+    border-radius: $border-radius;
+    padding: 2.5em;
   }
 }

@@ -6,8 +6,8 @@ body {
 
 button {
   font-weight: $font-bold;
-  font-size: .8em;
-  letter-spacing: .3px;
+  font-size: 0.8em;
+  letter-spacing: 0.3px;
 }
 
 .main-header {
@@ -38,5 +38,17 @@ button {
 .search-form__item {
   label {
     font-weight: $font-bold;
+  }
+}
+
+.offer {
+  .offer__company__name {
+    font-size: 1.5em;
+  }
+
+  .offer__company__site {
+    font-weight: $font-regular;
+    font-size: .9em;
+    color: rgb(172, 172, 172);
   }
 }
