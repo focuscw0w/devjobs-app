@@ -28,7 +28,7 @@
       <div class="search-form__item" id="search">
         <input type="checkbox" id="checkbox" v-model="checked" />
         <label for="checkbox">Full Time Only</label>
-        <button type="submit" class="search-form__btn" @click="searchJob()">
+        <button type="submit" class="search-form__btn" @click="searchJob">
           Search
         </button>
       </div>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { reactive, toRefs } from "@vue/reactivity";
+import { reactive, toRefs } from "vue";
 import { useStore } from "vuex";
 
 export default {
@@ -56,20 +56,27 @@ export default {
       state.checked = false;
     };
 
+    const hasJobQuery = () => state.jobQuery.trim() !== "";
+    const hasLocationQuery = () => state.locationQuery !== "";
+    const isFormValid = () => hasJobQuery() !== hasLocationQuery();
+
     const searchJob = () => {
-      if (state.jobQuery == "" && state.locationQuery == "") return;
-      if (state.jobQuery !== "" && state.locationQuery !== "") return;
-
-      if (state.jobQuery !== "")
-        store.dispatch("filterByTitle", state.jobQuery.trim);
-      else store.dispatch("filterByLocation", state.locationQuery);
-
+      if (!isFormValid()) {
+        return;
+      }
+      state.checked = false;
+      const filterAction = hasJobQuery() ? "filterByTitle" : "filterByLocation";
+      store.dispatch(
+        filterAction,
+        state.jobQuery.trim() || state.locationQuery
+      );
       resetSettings();
     };
 
-    return { ...toRefs(state), searchJob };
+    return {
+      ...toRefs(state),
+      searchJob,
+    };
   },
 };
 </script>
-
-<style></style>

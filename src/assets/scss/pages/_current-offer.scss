@@ -5,17 +5,17 @@
     border-radius: $border-radius;
     height: 110px;
     margin-bottom: .5em;
-    .offer__company__logo {
+    .offer__company-logo {
       @include center;
       flex: 1;
       background-color: orange;
     }
-    .offer__company__info {
+    .offer__company-info {
     @include space-between;
       flex: 3;
       padding: 2em;
 
-      .offer__company__btn {
+      .offer__company-btn {
         @include button-settings(#eeeeee, rgb(100, 76, 236))
       }
     }
