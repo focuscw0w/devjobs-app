@@ -4,19 +4,19 @@
     background-color: $color-main;
     border-radius: $border-radius;
     height: 110px;
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
     .offer__company-logo {
       @include center;
       flex: 1;
       background-color: orange;
     }
     .offer__company-info {
-    @include space-between;
+      @include space-between;
       flex: 3;
       padding: 2em;
 
       .offer__company-btn {
-        @include button-settings(#eeeeee, rgb(100, 76, 236))
+        @include button-settings(#eeeeee, rgb(100, 76, 236));
       }
     }
   }
@@ -25,5 +25,30 @@
     background-color: $color-main;
     border-radius: $border-radius;
     padding: 2.5em;
+
+    .flex-container {
+      gap: 0.5em;
+    }
+
+    .offer__details-job {
+      @include space-between;
+
+      .offer__details-heading {
+        margin: 0.3em 0;
+      }
+
+      .offer__company-apply {
+        @include button-settings($emphasized-background, #eeeeee);
+
+        &:hover {
+          background-color: lighten($emphasized-background, 10%);
+        }
+      }
+    
+    }
+
+    .offer__details-info {
+      margin-top: 2em;
+    }
   }
 }
