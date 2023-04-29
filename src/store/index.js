@@ -5,6 +5,7 @@ const state = {
   data: jsonData,
   filteredJobs: jsonData,
   darkTheme: false,
+  currentOffer: []
 };
 
 /* MUTATIONS */
@@ -15,6 +16,9 @@ const mutations = {
   },
   SET_FILTERED_JOBS: (state, value) => {
     state.filteredJobs = value
+  },
+  SET_CURRENT_OFFER: (state, offer) => {
+    state.currentOffer = offer
   }
 };
 

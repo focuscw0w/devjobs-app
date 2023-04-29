@@ -1,95 +1,131 @@
 <template>
-  <section class="offer container-small">
+  <section v-if="showOffer" class="offer container-small">
     <div class="offer__company flex-container">
-      <div class="offer__company-logo">
-        <img src="@/assets/images/logos/blogr.svg" alt="company logo" />
+      <div
+        class="offer__company-logo"
+        :style="$store.state.currentOffer.logoBackground"
+      >
+        <img
+          :src="
+            require(`@/assets/images/logos/${$store.state.currentOffer.logo}`)
+          "
+          alt="company logo"
+        />
       </div>
       <div class="offer__company-info">
         <div>
-          <h5 class="offer__company-name">Scoot</h5>
-          <span class="offer__company-site">scoot.com</span>
+          <h5 class="offer__company-name">
+            {{ $store.state.currentOffer.company }}
+          </h5>
+          <span class="offer__company-site">
+            {{ $store.state.currentOffer.website }}
+          </span>
         </div>
         <button type="submit" class="offer__company-btn">Company Site</button>
       </div>
     </div>
+
     <article class="offer__details">
       <div class="flex-container">
-        <span class="offer__details-time">1w ago</span>
+        <span class="offer__details-time">{{
+          $store.state.currentOffer.postedAt
+        }}</span>
         <span class="offer__details-splitter">•</span>
-        <span class="offer__details-type">Part Time</span>
+        <span class="offer__details-type">
+          {{ $store.state.currentOffer.contract }}
+        </span>
       </div>
       <div class="offer__details-job">
-        <h3 class="offer__details-heading">Senior Software Engineer</h3>
-        <button type="submit" class="offer__company-apply">Apply Now</button>
+        <h3 class="offer__details-heading">
+          {{ $store.state.currentOffer.position }}
+        </h3>
+        <button type="submit" class="apply-btn">Apply Now</button>
       </div>
-      <p class="offer__details-location">United Kingdom</p>
+      <p class="offer__details-location">
+        {{ $store.state.currentOffer.location }}
+      </p>
 
-      <div class="offer__details-info">
-        <p class="offer__details-paragraph">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <h5 class="offer__details-sub-heading">Requirements</h5>
+      <div class="offer__details-info mt-2">
+        <section class="offer__details__section">
+          <p class="offer__details-paragraph">
+            {{ $store.state.currentOffer.description }}
+          </p>
+        </section>
 
-        <p class="offer__details-paragraph">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quo
-          deleniti nesciunt nulla sed. Maxime, quos beatae? Quisquam dolorum,
-          facere recusandae impedit odit animi tempore accusamus, dignissimos,
-          similique illum repellat!
-        </p>
-        <ul class="offer__details-requirements">
-          <li class="offer__details-requirements__item">
-            Morbi interdum mollis sapien. Sed
-          </li>
-          <li class="offer__details-requirements__item">
-            Phasellus lacinia magna a ullamcorper lacreet, lectus arcu pulvinar
-            risus
-          </li>
-          <li class="offer__details-requirements__item">
-            Mauris nibh felis, adipisicing varius, adipiscing in, lacinia vel,
-            tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus.
-          </li>
-          <li class="offer__details-requirements__item">
-            Morbi interdum mollis sapien. Sed
-          </li>
-        </ul>
-        <h5 class="offer__details-sub-heading">What You Will Do</h5>
-        <p class="offer__details-paragraph">
-          Quo quaerat expedita eos recusandae ullam aut voluptas autem vel
-          expedita ducimus in reprehenderit molestiae. Ut quia harum eos nulla
-          molestiae aut reiciendis officiis est voluptatum deleniti qui
-          provident saepe. Ut porro natus rem aliquid excepturi et quae nostrum.
-        </p>
-        <ul class="offer__details-requirements-num">
-          <li class="offer__details-requirements__item">
-            Morbi interdum mollis sapien. Sed
-          </li>
-          <li class="offer__details-requirements__item">
-            Phasellus lacinia magna a ullamcorper lacreet, lectus arcu pulvinar
-            risus
-          </li>
-          <li class="offer__details-requirements__item">
-            Mauris nibh felis, adipisicing varius, adipiscing in, lacinia vel,
-            tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus.
-          </li>
-          <li class="offer__details-requirements__item">
-            Morbi interdum mollis sapien. Sed
-          </li>
-        </ul>
+        <section class="offer__details__section">
+          <h5 class="offer__details-sub-heading mb-0-5">Requirements</h5>
+
+          <p class="offer__details-paragraph">
+            {{ $store.state.currentOffer.requirements.content }}
+          </p>
+
+          <ul class="offer__details-requirements">
+            <li
+              v-for="requirement in $store.state.currentOffer.requirements
+                .items"
+              :key="requirement"
+              class="offer__details-requirements__item ul mb-0-5"
+            >
+              {{ requirement }}
+            </li>
+          </ul>
+        </section>
+
+        <section class="offer__details__section">
+          <h5 class="offer__details-sub-heading mb-0-5">What You Will Do</h5>
+
+          <p class="offer__details-paragraph">
+            {{ $store.state.currentOffer.role.content }}
+          </p>
+          <ol class="offer__details-requirements">
+            <li
+              v-for="role in $store.state.currentOffer.role.items"
+              :key="role"
+              class="offer__details-requirements__item ol mb-0-5"
+            >
+              {{ role }}
+            </li>
+          </ol>
+        </section>
       </div>
     </article>
   </section>
+
+  <footer class="offer-footer">
+    <div class="container-small">
+      <div class="flex-container">
+        <div class="offer-footer__company">
+          <h3 class="offer-footer__company-position mb-0-5">
+            Senior Software Engineer
+          </h3>
+          <p class="offer-footer__company-name">Scoot</p>
+        </div>
+        <button type="submit" class="apply-btn">Apply now</button>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <script>
-export default {
-  setup() {},
-};
-</script>
+import { onMounted, ref } from 'vue'
 
-<style></style>
+
+export default {
+  setup() {
+    
+    // there was showing an error /undefined
+
+    let showOffer = ref(false)
+    const delay = 0.1
+
+    onMounted(() => {
+      setTimeout(() => {
+        showOffer.value = true
+      }, delay)
+    })
+
+    return { showOffer }
+
+  }
+}
+</script>

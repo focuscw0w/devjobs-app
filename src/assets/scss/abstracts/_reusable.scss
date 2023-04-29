@@ -1,0 +1,19 @@
+.mt-2 {
+    margin-top: 2em;
+}
+
+.mb-0-5 {
+    margin-bottom: .5em;
+}
+
+.ml-1 {
+    margin-left: 1em;
+}
+
+.apply-btn {
+    @include button-settings($emphasized-background, #eeeeee);
+
+    &:hover {
+      background-color: lighten($emphasized-background, 10%);
+    }
+  }

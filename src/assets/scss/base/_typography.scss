@@ -15,14 +15,14 @@ button {
     font-weight: $font-bold;
     font-size: 1.5em;
     letter-spacing: 1px;
-    color: #ffffff;
+    color: $text-light;
   }
 }
 
 .card {
   .flex-container,
   .card__job-company {
-    color: rgb(172, 172, 172);
+    color: $text-grey;
   }
 
   .card__job-location {
@@ -31,7 +31,7 @@ button {
   }
 
   .card__job-name {
-    color: #000000;
+    color: $text-dark;
   }
 }
 
@@ -51,38 +51,71 @@ button {
   .offer__company-site {
     font-weight: $font-regular;
     font-size: 0.9em;
-    color: rgb(127, 127, 127);
+    color: $text-grey;
   }
 
   .offer__details {
     .offer__details-time {
       font-weight: $font-regular;
       font-size: 15px;
-      color: rgb(127, 127, 127);
+      color: $text-grey;
     }
 
     .offer__details-type {
       font-weight: $font-regular;
       font-size: 15px;
-      color: rgb(127, 127, 127);
+      color: $text-grey;
     }
 
     .offer__details-splitter {
-      color: rgb(127, 127, 127);
+      color: $text-grey;
     }
   }
 
   .offer__details-job {
     .offer__details-heading {
       font-weight: $font-bold;
-      font-size: 22px;
-      color: #000000;
+      font-size: 26px;
+      color: $text-dark;
     }
   }
 
   .offer__details-location {
     font-weight: $font-bold;
     font-size: 15px;
-    color: rgb(100, 76, 236);
+    color: $text-emphasized;
+  }
+
+
+  .offer__details__section {
+    .offer__details-sub-heading {
+      font-weight: $font-bold;
+      font-size: 20px;
+      letter-spacing: .4px;
+    }
+
+    .offer__details-paragraph {
+      font-weight: $font-regular;
+      font-size: 16px;
+      line-height: 24px;
+      color: $text-grey;
+    }
+
+    .offer__details-requirements__item {
+      font-weight: $font-regular;
+      font-size: 16px;
+      line-height: 26px;
+      color: $text-grey;
+    }
+  }
+}
+
+.offer-footer {
+  .offer-footer__company-name {
+    color: $text-grey;
+  }
+  
+  .offer-footer__company-position {
+    line-height: 18px;
   }
 }
