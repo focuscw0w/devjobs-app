@@ -28,10 +28,6 @@
       @include align-center;
       padding: 0.8em 1em;
 
-      .search-form__btn {
-        @include button-settings(rgb(100, 76, 236), #ffffff)
-      }
-
       img {
         margin-right: 1em;
       }

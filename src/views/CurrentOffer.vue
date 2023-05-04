@@ -107,25 +107,22 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue'
-
+import { onMounted, ref } from "vue";
 
 export default {
   setup() {
-    
     // there was showing an error /undefined
 
-    let showOffer = ref(false)
-    const delay = 0.1
+    let showOffer = ref(false);
+    const delay = 0.1;
 
     onMounted(() => {
       setTimeout(() => {
-        showOffer.value = true
-      }, delay)
-    })
+        showOffer.value = true;
+      }, delay);
+    });
 
-    return { showOffer }
-
-  }
-}
+    return { showOffer };
+  },
+};
 </script>

@@ -26,9 +26,9 @@
         />
       </div>
       <div class="search-form__item" id="search">
-        <input type="checkbox" id="checkbox" v-model="checked" />
-        <label for="checkbox">Full Time Only</label>
-        <button type="submit" class="search-form__btn" @click="searchJob">
+        <input type="checkbox" class="mr-0-5" id="checkbox" v-model="checked" />
+        <label for="checkbox"> Full Time Only </label>
+        <button type="submit" class="apply-btn" @click="searchJob">
           Search
         </button>
       </div>
@@ -64,12 +64,15 @@ export default {
       if (!isFormValid()) {
         return;
       }
-      state.checked = false;
+
       const filterAction = hasJobQuery() ? "filterByTitle" : "filterByLocation";
-      store.dispatch(
-        filterAction,
-        state.jobQuery.trim() || state.locationQuery
-      );
+
+      const payload = hasJobQuery()
+        ? { jobQuery: state.jobQuery.trim(), checked: state.checked }
+        : { locationQuery: state.locationQuery.trim(), checked: state.checked };
+
+      store.dispatch(filterAction, payload);
+
       resetSettings();
     };
 
