@@ -2,18 +2,24 @@
   <section class="home-page">
     <div class="container">
       <SearchForm />
-
-      <!-- refactor with grid container  -->
-
-      <div class="home-page__columns flex-container">
+      <div class="home-page__columns grid-container">
         <!-- there will be a variable in slice function instead of 13 -->
 
         <Card
           :jobInformation="job"
-          v-for="job in $store.state.filteredJobs.slice(0, 9)"
+          v-for="job in $store.state.filteredJobs.slice(
+            0,
+            currentAmountOfCards
+          )"
           :key="job.id"
           @click="$store.commit('SET_CURRENT_OFFER', job)"
         />
+      </div>
+
+      <div v-if="currentAmountOfCards != 13" class="load-more-btn">
+        <button @click="increaseAmountOfCards" class="apply-btn">
+          Load More
+        </button>
       </div>
     </div>
   </section>
@@ -22,8 +28,18 @@
 <script>
 import Card from "@/components/Card.vue";
 import SearchForm from "@/components/SearchForm.vue";
+import ref from "vue";
 
 export default {
   components: { Card, SearchForm },
+  setup() {
+    let currentAmountOfCards = ref(9);
+
+    const increaseAmountOfCards = () => {
+      currentAmountOfCards.value = 13;
+    };
+
+    return { currentAmountOfCards, increaseAmountOfCards };
+  },
 };
 </script>

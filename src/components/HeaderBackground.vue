@@ -25,7 +25,8 @@ export default {
      const store = useStore();
 
     const reloadPage = () => {
-      store.commit("SET_FILTERED_JOBS", store.state.data)
+      store.commit("SET_FILTERED_JOBS", store.state.data);
+      window.location.reload();
     }
 
     return { reloadPage }

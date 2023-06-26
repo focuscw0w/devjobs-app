@@ -1,11 +1,18 @@
 .home-page {
-    padding-bottom: 5em;
-    .home-page__columns.flex-container {
-        gap: 2em;
-        flex-wrap: wrap;
-    }
+  padding-bottom: 5em;
+  .home-page__columns.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+  }
 
-   .home-page__columns {
+  .home-page__columns {
     margin-top: 5em;
-   }
+  }
+
+  .load-more-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+  }
 }
