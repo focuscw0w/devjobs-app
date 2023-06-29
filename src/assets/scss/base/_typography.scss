@@ -33,6 +33,10 @@ button {
   .card__job-name {
     color: $text-dark;
   }
+
+  .card__job-name.dark {
+    color: $text-light;
+  }
 }
 
 .search-form__item {
@@ -40,8 +44,6 @@ button {
     font-weight: $font-bold;
   }
 }
-
-// Create variables!
 
 .offer {
   .offer__company-name {
@@ -118,4 +120,12 @@ button {
   .offer-footer__company-position {
     line-height: 18px;
   }
+}
+
+.search-input.dark {
+  color: $text-light;
+}
+
+.label-dark {
+  color: $text-light;
 }

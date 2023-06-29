@@ -1,21 +1,13 @@
 .search-form {
   @include component-settings;
   width: 100%;
-  background-color: #ffffff;
   border-radius: 4px;
-  box-shadow: $box-shadow;
 
   .flex-container {
     @include space-between;
 
     #title {
       flex: 3;
-    }
-
-    #location {
-      flex: 2;
-      border-left: 1px solid rgb(230, 230, 230);
-      border-right: 1px solid rgb(230, 230, 230);
     }
 
     #search {
@@ -46,5 +38,30 @@
         height: 15px;
       }
     }
+  }
+}
+
+.search-form.light {
+  background-color:#ffffff;
+  box-shadow: $box-shadow;
+
+  #location {
+    flex: 2;
+    border-left: 1px solid rgb(230, 230, 230);
+    border-right: 1px solid rgb(230, 230, 230);
+  }
+}
+
+.search-form.dark {
+  background-color: $dark-bg-item;
+
+  #location {
+    flex: 2;
+    border-left: 1px solid;
+    border-right: 1px solid;
+  }
+
+  .search-input {
+    background-color: $dark-bg-item;
   }
 }

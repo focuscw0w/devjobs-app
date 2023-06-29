@@ -1,7 +1,6 @@
 <template>
-  <article class="card">
+  <article :class="$store.state.darkTheme ? 'card dark' : 'card light'">
     <router-link to="/about">
-    
       <img
         :src="require(`@/assets/images/logos/${jobInformation.logo}`)"
         alt="company logo"
@@ -15,10 +14,15 @@
         <span class="card__job-type">{{ jobInformation.contract }}</span>
       </p>
 
-      <h4 class="card__job-name">{{ jobInformation.position }}</h4>
+      <h4
+        :class="
+          $store.state.darkTheme ? 'card__job-name dark' : 'card__job-name'
+        "
+      >
+        {{ jobInformation.position }}
+      </h4>
       <p class="card__job-company">{{ jobInformation.company }}</p>
       <p class="card__job-location">{{ jobInformation.location }}</p>
-
     </router-link>
   </article>
 </template>

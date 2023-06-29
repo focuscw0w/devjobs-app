@@ -3,8 +3,6 @@
     <div class="container">
       <SearchForm />
       <div class="home-page__columns grid-container">
-        <!-- there will be a variable in slice function instead of 13 -->
-
         <Card
           :jobInformation="job"
           v-for="job in $store.state.filteredJobs.slice(
@@ -28,7 +26,7 @@
 <script>
 import Card from "@/components/Card.vue";
 import SearchForm from "@/components/SearchForm.vue";
-import ref from "vue";
+import { ref } from "vue";
 
 export default {
   components: { Card, SearchForm },

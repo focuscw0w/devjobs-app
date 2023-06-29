@@ -1,5 +1,7 @@
 <template>
-  <form class="search-form">
+  <form
+    :class="$store.state.darkTheme ? 'search-form dark' : 'search-form light'"
+  >
     <div class="flex-container">
       <div class="search-form__item" id="title">
         <img
@@ -9,7 +11,7 @@
         <input
           type="text"
           placeholder="Filter by title, companies, expertise..."
-          class="search-input"
+          :class="$store.state.darkTheme ? 'search-input dark' : 'search-input'"
           v-model="jobQuery"
         />
       </div>
@@ -21,13 +23,18 @@
         <input
           type="text"
           placeholder="Filter by location..."
-          class="search-input"
+          :class="$store.state.darkTheme ? 'search-input dark' : 'search-input'"
           v-model="locationQuery"
         />
       </div>
       <div class="search-form__item" id="search">
         <input type="checkbox" class="mr-0-5" id="checkbox" v-model="checked" />
-        <label for="checkbox"> Full Time Only </label>
+        <label
+          for="checkbox"
+          :class="$store.state.darkTheme ? 'label-dark' : ''"
+        >
+          Full Time Only
+        </label>
         <button type="submit" class="apply-btn" @click="searchJob">
           Search
         </button>
