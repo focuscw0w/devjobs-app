@@ -1,6 +1,8 @@
 .search-form {
   @include component-settings;
   width: 100%;
+  background-color:#ffffff;
+  box-shadow: $box-shadow;
   border-radius: 4px;
 
   .flex-container {
@@ -8,6 +10,12 @@
 
     #title {
       flex: 3;
+    }
+
+    #location {
+      flex: 2;
+      border-left: 1px solid rgb(230, 230, 230);
+      border-right: 1px solid rgb(230, 230, 230);
     }
 
     #search {
@@ -41,19 +49,9 @@
   }
 }
 
-.search-form.light {
-  background-color:#ffffff;
-  box-shadow: $box-shadow;
-
-  #location {
-    flex: 2;
-    border-left: 1px solid rgb(230, 230, 230);
-    border-right: 1px solid rgb(230, 230, 230);
-  }
-}
-
 .search-form.dark {
   background-color: $dark-bg-item;
+  box-shadow: unset;
 
   #location {
     flex: 2;

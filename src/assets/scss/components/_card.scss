@@ -2,6 +2,8 @@
   position: relative;
   padding: 1.5em;
   border-radius: $border-radius;
+  background-color: #ffffff;
+  box-shadow: $box-shadow;
   margin-top: 1em;
   transition: .2s ease-in-out;
   cursor: pointer;
@@ -31,11 +33,7 @@
   }
 }
 
-.card.light {
-  background-color: #ffffff;
-  box-shadow: $box-shadow;
-}
-
 .card.dark {
   background-color: $dark-bg-item;
+  box-shadow: unset;
 }

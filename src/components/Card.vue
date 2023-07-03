@@ -1,5 +1,5 @@
 <template>
-  <article :class="$store.state.darkTheme ? 'card dark' : 'card light'">
+  <article :class="$store.state.darkTheme ? 'card dark' : 'card'">
     <router-link to="/about">
       <img
         :src="require(`@/assets/images/logos/${jobInformation.logo}`)"

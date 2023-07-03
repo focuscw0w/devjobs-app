@@ -12,9 +12,21 @@
           alt="company logo"
         />
       </div>
-      <div class="offer__company-info">
+      <div
+        :class="
+          $store.state.darkTheme
+            ? 'offer__company-info dark'
+            : 'offer__company-info'
+        "
+      >
         <div>
-          <h5 class="offer__company-name">
+          <h5
+            :class="
+              $store.state.darkTheme
+                ? 'offer__company-name dark'
+                : 'offer__company-name'
+            "
+          >
             {{ $store.state.currentOffer.company }}
           </h5>
           <span class="offer__company-site">
@@ -25,7 +37,9 @@
       </div>
     </div>
 
-    <article class="offer__details">
+    <article
+      :class="$store.state.darkTheme ? 'offer__details dark' : 'offer__details'"
+    >
       <div class="flex-container">
         <span class="offer__details-time">{{
           $store.state.currentOffer.postedAt
@@ -36,7 +50,13 @@
         </span>
       </div>
       <div class="offer__details-job">
-        <h3 class="offer__details-heading">
+        <h3
+          :class="
+            $store.state.darkTheme
+              ? 'offer__details-heading dark'
+              : 'offer__details-heading'
+          "
+        >
           {{ $store.state.currentOffer.position }}
         </h3>
         <button type="submit" class="apply-btn">Apply Now</button>
@@ -53,7 +73,15 @@
         </section>
 
         <section class="offer__details__section">
-          <h5 class="offer__details-sub-heading mb-0-5">Requirements</h5>
+          <h5
+            :class="
+              $store.state.darkTheme
+                ? 'offer__details-sub-heading mb-0-5 dark'
+                : 'offer__details-sub-heading mb-0-5'
+            "
+          >
+            Requirements
+          </h5>
 
           <p class="offer__details-paragraph">
             {{ $store.state.currentOffer.requirements.content }}
@@ -72,7 +100,15 @@
         </section>
 
         <section class="offer__details__section">
-          <h5 class="offer__details-sub-heading mb-0-5">What You Will Do</h5>
+          <h5
+            :class="
+              $store.state.darkTheme
+                ? 'offer__details-sub-heading mb-0-5 dark'
+                : 'offer__details-sub-heading mb-0-5'
+            "
+          >
+            What You Will Do
+          </h5>
 
           <p class="offer__details-paragraph">
             {{ $store.state.currentOffer.role.content }}
@@ -91,14 +127,24 @@
     </article>
   </section>
 
-  <footer class="offer-footer">
+  <footer
+    :class="$store.state.darkTheme ? 'offer-footer dark' : 'offer-footer'"
+  >
     <div class="container-small">
       <div class="flex-container">
         <div class="offer-footer__company">
-          <h3 class="offer-footer__company-position mb-0-5">
-            Senior Software Engineer
+          <h3
+            :class="
+              $store.state.darkTheme
+                ? 'offer-footer__company-position mb-0-5 dark'
+                : 'offer-footer__company-position mb-0-5'
+            "
+          >
+            {{ $store.state.currentOffer.position }}
           </h3>
-          <p class="offer-footer__company-name">Scoot</p>
+          <p class="offer-footer__company-name">
+            {{ $store.state.currentOffer.company }}
+          </p>
         </div>
         <button type="submit" class="apply-btn">Apply now</button>
       </div>
@@ -108,15 +154,19 @@
 
 <script>
 import { onMounted, ref } from "vue";
+import { useStore } from "vuex";
 
 export default {
   setup() {
+    const store = useStore();
     // there was showing an error /undefined
 
     let showOffer = ref(false);
     const delay = 0.1;
 
     onMounted(() => {
+      const currentOffer = JSON.parse(localStorage.getItem("currentOffer"));
+      store.commit("SET_FILTERED_JOBS", currentOffer);
       setTimeout(() => {
         showOffer.value = true;
       }, delay);

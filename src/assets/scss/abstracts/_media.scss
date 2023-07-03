@@ -1,0 +1,43 @@
+@media screen and (max-width: 900px) {
+  .search-form__item {
+    label {
+      white-space: nowrap;
+    }
+
+    span {
+      font-size: 1em;
+    }
+
+    .search-input {
+      width: 100%;
+    }
+  }
+
+  .search-form {
+    .apply-btn {
+      padding: 1em 1em;
+    }
+
+    .flex-container {
+      #search {
+        gap: 0.5em !important;
+      }
+    }
+
+    .flex-container > * {
+      flex: unset !important;
+    }
+  }
+}
+
+@media screen and (max-width: 705px) {
+  .card {
+    .flex-container {
+      white-space: nowrap;
+    }
+  }
+
+  .home-page .home-page__columns.grid-container {
+    grid-template-columns: repeat(2, 1fr)!important;
+  }
+}

@@ -19,6 +19,7 @@ const mutations = {
   },
   SET_CURRENT_OFFER: (state, offer) => {
     state.currentOffer = offer;
+    localStorage.setItem("currentOffer", JSON.stringify(offer));
   },
 };
 

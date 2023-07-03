@@ -50,6 +50,10 @@ button {
     font-size: 1.5em;
   }
 
+  .offer__company-name.dark {
+    color: $text-light;
+  }
+
   .offer__company-site {
     font-weight: $font-regular;
     font-size: 0.9em;
@@ -61,6 +65,10 @@ button {
       font-weight: $font-regular;
       font-size: 15px;
       color: $text-grey;
+    }
+
+    .offer__details-heading.dark {
+      color: $text-light;
     }
 
     .offer__details-type {
@@ -120,6 +128,10 @@ button {
   .offer-footer__company-position {
     line-height: 18px;
   }
+
+  .offer-footer__company-position.dark {
+    color: $text-light;
+  }
 }
 
 .search-input.dark {
@@ -127,5 +139,9 @@ button {
 }
 
 .label-dark {
+  color: $text-light;
+}
+
+.offer__details-sub-heading.dark {
   color: $text-light;
 }

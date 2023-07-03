@@ -1,7 +1,5 @@
 <template>
-  <form
-    :class="$store.state.darkTheme ? 'search-form dark' : 'search-form light'"
-  >
+  <form :class="$store.state.darkTheme ? 'search-form dark' : 'search-form'">
     <div class="flex-container">
       <div class="search-form__item" id="title">
         <img
@@ -10,7 +8,11 @@
         />
         <input
           type="text"
-          placeholder="Filter by title, companies, expertise..."
+          :placeholder="
+            screenWidth < 915
+              ? 'Filter by title...'
+              : 'Filter by title, companies, expertise...'
+          "
           :class="$store.state.darkTheme ? 'search-input dark' : 'search-input'"
           v-model="jobQuery"
         />
@@ -33,7 +35,8 @@
           for="checkbox"
           :class="$store.state.darkTheme ? 'label-dark' : ''"
         >
-          Full Time Only
+          <span v-if="screenWidth > 992">Full Time Only</span>
+          <span v-else>Full Time</span>
         </label>
         <button type="submit" class="apply-btn" @click="searchJob">
           Search
@@ -44,7 +47,7 @@
 </template>
 
 <script>
-import { reactive, toRefs } from "vue";
+import { onMounted, onUnmounted, reactive, ref, toRefs } from "vue";
 import { useStore } from "vuex";
 
 export default {
@@ -83,9 +86,23 @@ export default {
       resetSettings();
     };
 
+    const screenWidth = ref(window.innerWidth);
+    const handleResize = () => {
+      screenWidth.value = window.innerWidth;
+    };
+
+    onMounted(() => {
+      window.addEventListener("resize", handleResize);
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener("resize", handleResize);
+    });
+
     return {
       ...toRefs(state),
       searchJob,
+      screenWidth,
     };
   },
 };
