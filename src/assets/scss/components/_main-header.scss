@@ -21,4 +21,8 @@
     @include align-center;
     gap: 0.5em;
   }
+
+  .main-header__heading {
+    cursor: pointer;
+  }
 }

@@ -1,5 +1,5 @@
 <template>
-  <form :class="$store.state.darkTheme ? 'search-form dark' : 'search-form'">
+  <form :class="$store.state.darkTheme ? 'search-form dark' : 'search-form'" @submit.prevent="searchJob">
     <div class="flex-container">
       <div class="search-form__item" id="title">
         <img
@@ -70,7 +70,8 @@ export default {
     const hasLocationQuery = () => state.locationQuery !== "";
     const isFormValid = () => hasJobQuery() !== hasLocationQuery();
 
-    const searchJob = () => {
+    const searchJob = (event) => {
+      event.preventDefault();
       if (!isFormValid()) {
         return;
       }

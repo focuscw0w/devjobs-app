@@ -2,9 +2,7 @@
   <div class="header">
     <header class="main-header">
       <div class="flex-container container">
-        <router-link to="/">
-          <h3 class="main-header__heading">devjobs</h3>
-        </router-link>
+        <h3 @click="reloadPage" class="main-header__heading">devjobs</h3>
         <div class="theme-switch">
           <img src="@/assets/images/desktop/icon-sun.svg" alt="light theme" />
           <SwitchButton />
@@ -17,19 +15,18 @@
 
 <script>
 import SwitchButton from "@/components/SwitchButton.vue";
-import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 
 export default {
   components: { SwitchButton },
   setup() {
-     const store = useStore();
+    const router = useRouter();
 
     const reloadPage = () => {
-      store.commit("SET_FILTERED_JOBS", store.state.data);
-      window.location.reload();
-    }
+      router.push({ name: "home" });
+    };
 
-    return { reloadPage }
-  }
+    return { reloadPage };
+  },
 };
 </script>

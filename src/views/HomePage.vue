@@ -8,7 +8,7 @@
           v-for="job in $store.state.filteredJobs.slice(
             0,
             currentAmountOfCards
-          )"
+          ) || job in $store.state.data"
           :key="job.id"
           @click="$store.commit('SET_CURRENT_OFFER', job)"
         />
@@ -26,7 +26,8 @@
 <script>
 import Card from "@/components/Card.vue";
 import SearchForm from "@/components/SearchForm.vue";
-import { ref } from "vue";
+import { onBeforeMount, onMounted, ref } from "vue";
+import { useStore } from "vuex";
 
 export default {
   components: { Card, SearchForm },
@@ -36,6 +37,14 @@ export default {
     const increaseAmountOfCards = () => {
       currentAmountOfCards.value = 13;
     };
+
+    const store = useStore();
+    onBeforeMount(() => {
+      store.state.filteredJobs = store.state.data;
+    }),
+      onMounted(() => {
+        console.log(store.state.filteredJobs);
+      });
 
     return { currentAmountOfCards, increaseAmountOfCards };
   },
