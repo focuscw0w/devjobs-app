@@ -37,3 +37,9 @@
   background-color: $dark-bg-item;
   box-shadow: unset;
 }
+
+@media screen and (max-width: 600px) {
+  .card {
+    padding: 10%;
+  }
+}

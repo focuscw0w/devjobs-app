@@ -14,12 +14,11 @@ const mutations = {
   TOGGLE_THEME: (state) => {
     state.darkTheme = !state.darkTheme;
   },
-  SET_FILTERED_JOBS: (state, value) => {
-    state.filteredJobs = value;
+  SET_FILTERED_JOBS: (state, data) => {
+    state.filteredJobs = data;
   },
   SET_CURRENT_OFFER: (state, offer) => {
     state.currentOffer = offer;
-    localStorage.setItem("currentOffer", JSON.stringify(offer));
   },
 };
 

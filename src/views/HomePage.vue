@@ -41,10 +41,7 @@ export default {
     const store = useStore();
     onBeforeMount(() => {
       store.state.filteredJobs = store.state.data;
-    }),
-      onMounted(() => {
-        console.log(store.state.filteredJobs);
-      });
+    });
 
     return { currentAmountOfCards, increaseAmountOfCards };
   },

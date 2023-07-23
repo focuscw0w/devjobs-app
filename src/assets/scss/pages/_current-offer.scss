@@ -10,6 +10,7 @@
       flex: 1;
       background-color: orange;
     }
+
     .offer__company-info {
       @include space-between;
       flex: 3;
@@ -17,6 +18,17 @@
 
       .offer__company-btn {
         @include button-settings(#eeeeee, rgb(100, 76, 236));
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .offer__company-info {
+        flex-direction: column;
+        padding: 5%;
+
+        .offer__company-btn {
+          padding: 5%;
+        }
       }
     }
   }
@@ -36,7 +48,17 @@
       .offer__details-heading {
         margin: 0.3em 0;
       }
+    }
 
+    @media screen and (max-width: 600px) {
+      .offer__details-job {
+        flex-direction: column;
+        gap: .5em;
+
+        .apply-btn {
+          margin-bottom: 1em;
+        }
+      }
     }
 
     .offer__details__section {

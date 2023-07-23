@@ -6,6 +6,12 @@
     gap: 2em;
   }
 
+  @media screen and (max-width: 600px) {
+    .home-page__columns.grid-container {
+      grid-template-columns: repeat(1, 1fr)!important;
+    }
+  }
+
   .home-page__columns {
     margin-top: 5em;
   }

@@ -165,8 +165,6 @@ export default {
     const delay = 0.1;
 
     onMounted(() => {
-      const currentOffer = JSON.parse(localStorage.getItem("currentOffer"));
-      store.commit("SET_FILTERED_JOBS", currentOffer);
       setTimeout(() => {
         showOffer.value = true;
       }, delay);
